@@ -1,7 +1,7 @@
 {
   "name": "@zegocloud/zego-uikit-prebuilt-live-streaming-rn",
   "version": "2.5.3",
-  "description": "PrebuiltLiveStreaming is a full-featured live streaming kit that provides ready-made video streaming, live text chat, face beautification, and supports unlimited viewers.",
+  "description": "PrebuiltLiveStreaming is a full-featured live streaming kit that provides ready-made video streaming, live text chat, face beautification, and supports unlimited viewers. Now with Expo support!",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "react-native": "src/index",
@@ -13,6 +13,8 @@
     "android",
     "ios",
     "cpp",
+    "app.plugin.js",
+    "expo-module.config.json",
     "zego-uikit-prebuilt-live-streaming-rn.podspec",
     "!lib/typescript/example",
     "!android/.editorconfig",
@@ -41,8 +43,12 @@
   },
   "keywords": [
     "react-native",
+    "expo",
     "ios",
-    "android"
+    "android",
+    "live-streaming",
+    "video-streaming",
+    "chat"
   ],
   "repository": "https://zegocloud.com",
   "author": "Oliver <OliverYang@zego.im> (https://zegocloud.com)",
@@ -90,6 +96,7 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
+    "expo": ">=49.0.0",
     "@zegocloud/zego-uikit-rn": ">=2.17.1",
     "react-native-orientation-locker": "^1.7.0"
   },

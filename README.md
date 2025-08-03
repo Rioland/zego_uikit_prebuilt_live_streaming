@@ -1,5 +1,42 @@
 # Quick start
 
+## Expo Support
+
+This library now supports Expo! You can use it in both managed and bare Expo workflows.
+
+### Expo Installation
+
+1. Install the package:
+```bash
+npx expo install @zegocloud/zego-uikit-prebuilt-live-streaming-rn
+```
+
+2. Add the plugin to your `app.config.js` or `expo.json`:
+```javascript
+// app.config.js
+export default {
+  expo: {
+    // ... other config
+    plugins: [
+      '@zegocloud/zego-uikit-prebuilt-live-streaming-rn'
+    ]
+  }
+};
+```
+
+3. For development builds, run:
+```bash
+npx expo run:ios
+# or
+npx expo run:android
+```
+
+### Required Permissions
+
+The plugin automatically adds the necessary permissions:
+- **iOS**: Camera and Microphone usage descriptions
+- **Android**: Camera, Record Audio, Internet, and Network State permissions
+
 - - -
 
 [![](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/EtNRATttyp)
@@ -15,7 +52,11 @@
 ### Add @zegocloud/zego-uikit-prebuilt-live-streaming-rn as dependencies
 
 ```bash
+# For React Native CLI projects
 yarn add @zegocloud/zego-uikit-prebuilt-live-streaming-rn 
+
+# For Expo projects
+npx expo install @zegocloud/zego-uikit-prebuilt-live-streaming-rn
 ```
 
 ### Add other dependencies
@@ -23,7 +64,17 @@ yarn add @zegocloud/zego-uikit-prebuilt-live-streaming-rn
 Run the following command to install other dependencies for making sure the `@zegocloud/zego-uikit-prebuilt-live-streaming-rn` can work properly:
 
 ```bash
+# For React Native CLI projects
 yarn add @zegocloud/zego-uikit-rn react-delegate-component zego-express-engine-reactnative
+
+# For Expo projects
+npx expo install @zegocloud/zego-uikit-rn react-delegate-component zego-express-engine-reactnative
+```
+
+**Note for Expo users**: Some dependencies may require development builds. If you encounter issues with the managed workflow, consider using a development build or ejecting to a bare workflow.
+
+```bash
+npx expo run:ios  # or npx expo run:android
 ```
 
 ### Using the `ZegoUIKitPrebuiltLiveStreaming` Component in your project
@@ -68,6 +119,12 @@ export default function HostPage(props) {
 
 
 ## Configure your project
+
+### For Expo Projects
+
+If you're using Expo, the plugin will automatically configure permissions. No additional setup is needed for permissions.
+
+### For React Native CLI Projects
 
 - Android: 
 

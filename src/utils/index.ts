@@ -1,4 +1,5 @@
 import { Platform, PermissionsAndroid, Permission } from 'react-native';
+import { handleExpoPermissions, isExpoEnvironment } from './expo-compat';
 
 const getShortName = (name: string | undefined) => {
     if (!name) {
@@ -15,6 +16,19 @@ const getShortName = (name: string | undefined) => {
 };
 
 const grantPermissions = async (callback?: () => void) => {
+    // Check if we're in Expo environment first
+    if (isExpoEnvironment()) {
+        try {
+            const granted = await handleExpoPermissions();
+            if (granted && callback) {
+                callback();
+            }
+            return granted;
+        } catch (error) {
+            console.warn('Expo permission handling failed, falling back to React Native');
+        }
+    }
+
     // Android: Dynamically obtaining device permissions
     if (Platform.OS === 'android') {
         // Check if permission granted
