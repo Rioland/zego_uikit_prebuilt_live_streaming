@@ -97,3 +97,4 @@ lefthook.yml
 # ZegoCloud
 npm
 example/src/KeyCenter.js
+.env
